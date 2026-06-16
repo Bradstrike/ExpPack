@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExpPack - Global & Yerel Paket Kontrol Paneli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="glow-container">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+  </div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="main-header">
+      <div class="logo-area">
+        <h1>Exp<span style="opacity:0.7">Pack</span> <span style="font-size:18px;-webkit-text-fill-color:initial">⬡</span></h1>
+        <p class="subtitle" data-i18n="app_subtitle">Global &amp; Yerel Paket Yönetim İstasyonu</p>
+      </div>
+      <div class="header-stats">
+        <button class="stat-bubble btn-lang" id="btn-lang-toggle" data-i18n-title="btn_lang_title" title="Dil Seçeneği / Language Selection">
+          <span class="label">🌐 <span data-i18n="lang_label">Dil:</span></span>
+          <span class="value" id="lang-toggle-val">TR</span>
+        </button>
+        <div class="stat-bubble" id="stat-npm-cache">
+          <span class="label" data-i18n="npm_cache">NPM Önbelleği:</span>
+          <span class="value" id="npm-cache-val" data-i18n="cache_calculating">Hesaplanıyor...</span>
+          <button class="btn-icon-clear" id="btn-clear-cache" data-i18n-title="btn_clear_cache_title" title="Önbelleği Temizle">🧹</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+      <div class="stat-card">
+        <div class="stat-icon">📦</div>
+        <div class="stat-info">
+          <span class="stat-label" data-i18n="global_npm_packages">Global NPM Paketleri</span>
+          <span class="stat-number" id="stat-npm-count">0</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🧶</div>
+        <div class="stat-info">
+          <span class="stat-label" data-i18n="global_yarn_packages">Global Yarn Paketleri</span>
+          <span class="stat-number" id="stat-yarn-count">0</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">💻</div>
+        <div class="stat-info">
+          <span class="stat-label" data-i18n="cli_commands">CLI Komutları</span>
+          <span class="stat-number" id="stat-cli-count">0</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🛣️</div>
+        <div class="stat-info">
+          <span class="stat-label" data-i18n="path_dirs">PATH Dizinleri</span>
+          <span class="stat-number" id="stat-path-count">0</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Workspace -->
+    <div class="workspace-grid">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar-nav">
+        <button class="nav-item active" data-target="npm-panel">
+          <span class="icon">📦</span> <span data-i18n="nav_npm_global">NPM Global</span>
+        </button>
+        <button class="nav-item" data-target="yarn-panel">
+          <span class="icon">🧶</span> <span data-i18n="nav_yarn_global">Yarn Global</span>
+        </button>
+        <button class="nav-item" data-target="local-panel">
+          <span class="icon">📂</span> <span data-i18n="nav_local_project">Yerel Proje</span>
+        </button>
+        <button class="nav-item" data-target="install-panel">
+          <span class="icon">⚡</span> <span data-i18n="nav_installer">Yükleyici</span>
+        </button>
+        <button class="nav-item" data-target="path-panel">
+          <span class="icon">🔗</span> <span data-i18n="nav_system_path">Sistem PATH</span>
+        </button>
+      </aside>
+
+      <!-- Main Panels -->
+      <main class="content-panel">
+        
+        <!-- NPM PANEL -->
+        <section id="npm-panel" class="tab-panel active">
+          <div class="panel-header">
+            <h2 data-i18n="npm_panel_title">NPM Global Paketleri</h2>
+            <div class="search-box">
+              <input type="text" data-i18n-placeholder="search_packages_placeholder" placeholder="Paketlerde ara..." class="search-input" id="npm-search">
+            </div>
+          </div>
+          <div class="list-container" id="npm-list">
+            <div class="loader" data-i18n="scanning">Taranıyor...</div>
+          </div>
+        </section>
+
+        <!-- YARN PANEL -->
+        <section id="yarn-panel" class="tab-panel">
+          <div class="panel-header">
+            <h2 data-i18n="yarn_panel_title">Yarn Global Paketleri</h2>
+            <div class="search-box">
+              <input type="text" data-i18n-placeholder="search_packages_placeholder" placeholder="Paketlerde ara..." class="search-input" id="yarn-search">
+            </div>
+          </div>
+          <div class="list-container" id="yarn-list">
+            <div class="loader" data-i18n="scanning">Taranıyor...</div>
+          </div>
+        </section>
+
+        <!-- LOCAL PROJECT PANEL -->
+        <section id="local-panel" class="tab-panel">
+          <div class="panel-header">
+            <h2 data-i18n="local_panel_title">Yerel Proje Tarayıcı</h2>
+          </div>
+          <div class="project-selector">
+            <div class="input-group">
+              <label for="project-path-input" data-i18n="project_path_label">Proje Klasörü Yolu (Absolute Path):</label>
+              <div class="input-row">
+                <input type="text" id="project-path-input" data-i18n-placeholder="project_path_placeholder" placeholder="Örn: C:\projelerim\yeni-proje" class="path-input">
+                <button class="btn btn-primary" id="btn-scan-project" data-i18n="btn_scan_project">Klasörü Tara</button>
+              </div>
+            </div>
+          </div>
+          <div class="project-info-box hidden" id="project-details">
+            <h3 id="project-title">Proje Adı: -</h3>
+            <p id="project-meta">Sürüm: -</p>
+            <div class="search-box">
+              <input type="text" data-i18n-placeholder="project_search_placeholder" placeholder="Proje paketlerinde ara..." class="search-input" id="local-search">
+            </div>
+            <div class="list-container" id="local-list">
+              <!-- Local packages list -->
+            </div>
+          </div>
+          <div class="empty-state" id="project-empty-state">
+            <span class="emoji">📂</span>
+            <p data-i18n="project_empty_desc">Taramak istediğiniz projenin tam klasör yolunu yukarıya girip "Klasörü Tara" butonuna basın.</p>
+          </div>
+        </section>
+
+        <!-- INSTALL PANEL -->
+        <section id="install-panel" class="tab-panel">
+          <div class="panel-header">
+            <h2 data-i18n="installer_title">Yeni Paket Yükleme İstasyonu</h2>
+          </div>
+          <div class="install-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label data-i18n="install_type_label">Yükleme Tipi:</label>
+                <div class="radio-group">
+                  <label class="radio-label">
+                    <input type="radio" name="install-scope" value="global" checked>
+                    <span data-i18n="install_scope_global">Global</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="install-scope" value="local">
+                    <span data-i18n="install_scope_local">Yerel Proje</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label data-i18n="package_manager_label">Paket Yöneticisi:</label>
+                <div class="radio-group">
+                  <label class="radio-label">
+                    <input type="radio" name="install-manager" value="npm" checked>
+                    <span>NPM</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="install-manager" value="yarn">
+                    <span>Yarn</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Global Target Path for Local project -->
+            <div class="form-group hidden" id="install-local-path-group">
+              <label for="install-local-path" data-i18n="target_project_path_label">Hedef Proje Dizin Yolu:</label>
+              <input type="text" id="install-local-path" data-i18n-placeholder="target_project_path_placeholder" placeholder="Örn: C:\projelerim\yeni-proje" class="form-input">
+            </div>
+
+            <div class="form-group">
+              <label for="install-cmd-input" data-i18n="install_cmd_label">Paket Adı veya Hazır Kurulum Komutu:</label>
+              <div class="input-row">
+                <input type="text" id="install-cmd-input" data-i18n-placeholder="install_cmd_placeholder" placeholder="Örn: typescript veya npm i -g nodemon" class="form-input">
+                <button class="btn btn-success" id="btn-run-install" data-i18n="btn_run_install">Yüklemeyi Başlat</button>
+              </div>
+              <p class="input-hint" data-i18n="installer_hint">İster sadece paket ismini yazın, isterseniz kopyaladığınız hazır terminal komutunu yapıştırın (ExpPack otomatik ayrıştırır).</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- PATH PANEL -->
+        <section id="path-panel" class="tab-panel">
+          <div class="panel-header">
+            <h2 data-i18n="path_title">Sistem PATH Ortam Değişkenleri</h2>
+          </div>
+          <div class="path-actions">
+            <div class="input-group">
+              <label for="add-path-input" data-i18n="add_path_label">Kullanıcı PATH Değişkenine Yeni Klasör Ekle:</label>
+              <div class="input-row">
+                <input type="text" id="add-path-input" data-i18n-placeholder="add_path_placeholder" placeholder="Örn: C:\Users\Kullanıcı\node_modules\.bin" class="path-input">
+                <button class="btn btn-primary" id="btn-add-path" data-i18n="btn_add_path">PATH'e Ekle</button>
+              </div>
+            </div>
+          </div>
+          <div class="path-list-container">
+            <h3 data-i18n="current_paths_title">Mevcut PATH Kayıtları</h3>
+            <p class="section-desc" data-i18n="paths_desc">Yeşil renkli olanlar Node.js / NPM / Yarn ile ilişkili yolları belirtir.</p>
+            <div class="path-items-list" id="path-items-list">
+              <!-- PATH directories -->
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <!-- Live Terminal Area -->
+    <footer class="terminal-footer minimized" id="terminal-footer">
+      <div class="terminal-header" id="terminal-header-toggle">
+        <div class="terminal-title">
+          <span class="term-dot green"></span>
+          <span class="term-dot yellow"></span>
+          <span class="term-dot red"></span>
+          <span class="title-text" data-i18n="terminal_title">Canlı İşlem Konsolu (SSE Terminal)</span>
+        </div>
+        <div class="terminal-actions">
+          <button class="btn-term-action" id="btn-clear-term" data-i18n-title="terminal_clear_title" title="Konsolu Temizle">🚫</button>
+          <button class="btn-term-action" id="btn-toggle-term" data-i18n-title="terminal_toggle_title" title="Küçült/Büyüt">↕️</button>
+        </div>
+      </div>
+      <div class="terminal-body" id="terminal-body">
+        <div class="log-line system-line" id="term-welcome-msg" data-i18n="terminal_welcome">> ExpPack konsoluna hoş geldiniz. Yapılan tüm yükleme/silme işlemleri burada anlık akar.</div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

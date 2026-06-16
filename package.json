@@ -1,0 +1,43 @@
+{
+  "name": "exppack",
+  "version": "1.0.0",
+  "description": "NPM, Yarn, NPX Package Manager Dashboard",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "electron .",
+    "server": "node server.js",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "open": "^10.1.0"
+  },
+  "devDependencies": {
+    "electron": "^30.0.1",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.exppack.app",
+    "productName": "ExpPack",
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "files": [
+      "**/*"
+    ]
+  },
+  "keywords": [
+    "npm",
+    "yarn",
+    "npx",
+    "dashboard",
+    "manager"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}
