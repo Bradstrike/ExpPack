@@ -1,0 +1,13 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.exppack.app
+productName: ExpPack
+win:
+  target:
+    - nsis
+    - portable
+files:
+  - filter:
+      - '**/*'
+electronVersion: 30.5.1
