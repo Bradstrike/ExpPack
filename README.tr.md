@@ -4,6 +4,8 @@ ExpPack; bilgisayarınızdaki global ve yerel **NPM**, **Yarn** ve **NPX** paket
 
 Hafif (lightweight) yapısı sayesinde bilgisayarınızda fazladan bellek tüketmez, saniyeler içinde açılır ve işlerinizi hızlandırır.
 
+![ExpPack Arayüzü](screenshot.png)
+
 ---
 
 ## ✨ Özellikler

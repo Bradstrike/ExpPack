@@ -4,6 +4,8 @@ ExpPack is a modern desktop dashboard application that detects global and local 
 
 Thanks to its lightweight structure, it does not consume excessive memory, launches in seconds, and accelerates your workflow.
 
+![ExpPack Screenshot](screenshot.png)
+
 ---
 
 ## ✨ Features
