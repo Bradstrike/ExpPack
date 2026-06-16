@@ -7,6 +7,11 @@ Thanks to its lightweight structure, it does not consume excessive memory, launc
 ![ExpPack Screenshot](screenshot.png)
 ![ExpPack Console Screenshot](screenshot_console.png)
 
+## 📥 Direct Downloads for Windows
+If you want to use the application immediately without cloning the repository or running any commands, you can download the ready-to-use binaries below:
+* **[Download Portable Version (73.5 MB)](https://github.com/Bradstrike/ExpPack/raw/main/dist/ExpPack%201.0.0.exe)** - Run directly without installation.
+* **[Download Setup Installer (73.6 MB)](https://github.com/Bradstrike/ExpPack/raw/main/dist/ExpPack%20Setup%201.0.0.exe)** - Standard installation wizard.
+
 ---
 
 ## ✨ Features

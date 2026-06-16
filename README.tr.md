@@ -7,6 +7,11 @@ Hafif (lightweight) yapısı sayesinde bilgisayarınızda fazladan bellek tüket
 ![ExpPack Arayüzü](screenshot.png)
 ![ExpPack Konsol Arayüzü](screenshot_console.png)
 
+## 📥 Doğrudan İndirme Linkleri (Windows)
+Uygulamayı projeyi klonlamadan veya herhangi bir komut çalıştırmadan doğrudan kullanmak isterseniz, hazır derlenmiş dosyaları aşağıdaki bağlantılardan indirebilirsiniz:
+* **[Portable (Taşınabilir) Sürümü İndir (73.5 MB)](https://github.com/Bradstrike/ExpPack/raw/main/dist/ExpPack%201.0.0.exe)** - Kurulum gerektirmez, doğrudan çalışır.
+* **[Setup (Kurulum) Paketini İndir (73.6 MB)](https://github.com/Bradstrike/ExpPack/raw/main/dist/ExpPack%20Setup%201.0.0.exe)** - Windows için standart kurulum sihirbazı.
+
 ---
 
 ## ✨ Özellikler
